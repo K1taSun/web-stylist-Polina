@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Polina — osobista stylistka / Полина — персональный стилист. PL & RU." />
+  <meta name="keywords" content="stylistka, stylizacja, personal stylist, moda, Polina, стиліст, мода" />
+  <meta property="og:title" content="Polina — Personal Stylist" />
+  <meta property="og:description" content="Elegancja, styl, pewność siebie. Записатись на консультацію." />
+  <meta property="og:type" content="website" />
+  <title>Polina — Personal Stylist</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- przełącznik języka PL/RU, fixed góra prawa -->
+  <div class="lang-switcher" id="lang-switcher" aria-label="Wybór języka / Выбор языка">
+    <button id="btn-pl" class="lang-btn active" aria-label="Język polski" onclick="setLang('pl')">PL</button>
+    <span class="lang-sep">|</span>
+    <button id="btn-ru" class="lang-btn" aria-label="Русский язык" onclick="setLang('ru')">RU</button>
+  </div>
+
+  <!-- hamburger toggle, fixed góra lewa -->
+  <button class="hamburger" id="hamburger-btn" aria-label="Otwórz menu / Открыть меню" aria-expanded="false" onclick="toggleNav()">
+    <span class="ham-line"></span>
+    <span class="ham-line"></span>
+    <span class="ham-line"></span>
+  </button>
+
+  <!-- panel boczny, wysuwa się z lewej -->
+  <nav class="side-nav" id="side-nav" aria-hidden="true">
+    <button class="nav-close" id="nav-close-btn" aria-label="Zamknij menu / Закрити меню" onclick="toggleNav()">&#215;</button>
+    <div class="nav-logo" data-i18n="nav_logo">Polina</div>
+    <ul class="nav-links" role="list">
+      <li><a href="#hero" class="nav-link" onclick="toggleNav()" data-i18n="nav_home">Strona główna</a></li>
+      <li><a href="#services" class="nav-link" onclick="toggleNav()" data-i18n="nav_services">Usługi</a></li>
+      <li><a href="#chat" class="nav-link" onclick="toggleNav()" data-i18n="nav_chat">Stylowy czat</a></li>
+      <li><a href="#reviews" class="nav-link" onclick="toggleNav()" data-i18n="nav_reviews">Opinie</a></li>
+      <li><a href="#collab" class="nav-link" onclick="toggleNav()" data-i18n="nav_collab">Współpraca</a></li>
+      <li><a href="#booking" class="nav-link nav-link--cta" onclick="toggleNav()" data-i18n="nav_book">Zapisz się</a></li>
+    </ul>
+    <div class="nav-footer-quote" data-i18n="nav_quote">"Styl to język, którym mówisz bez słów."</div>
+  </nav>
+
+  <!-- Nav overlay -->
+  <div class="nav-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+
+  <!-- HERO 50/50: lewa = tekst sticky, prawa = foto 120vh -->
+  <section class="hero" id="hero">
+    <!-- LEFT HALF -->
+    <div class="hero__left fade-in-left">
+      <div class="hero__content">
+        <span class="hero__eyebrow" data-i18n="hero_eyebrow">Personal Stylist</span>
+        <h1 class="hero__title" data-i18n="hero_title">Twój styl<br /><em>Twoja siła</em></h1>
+        <p class="hero__subtitle" data-i18n="hero_subtitle">
+          Odkryj wizerunek, który mówi za Ciebie — bez słów, bez kompromisów.
+        </p>
+        <div class="hero__cta-group">
+          <a href="#booking" class="btn btn--primary" data-i18n="hero_cta_primary">Zapisz się</a>
+          <a href="#services" class="btn btn--outline" data-i18n="hero_cta_secondary">Poznaj usługi</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT HALF — PHOTO -->
+    <div class="hero__right fade-in-right">
+      <img
+        src="images/hero.png"
+        alt="Polina — Personal Stylist"
+        class="hero__photo"
+        loading="eager"
+        width="800"
+        height="1200"
+      />
+    </div>
+  </section>
+
+  <!-- USŁUGI -->
+  <section class="services" id="services">
+    <div class="section-header">
+      <span class="section-eyebrow" data-i18n="services_eyebrow">Co oferuję</span>
+      <h2 class="section-title" data-i18n="services_title">Usługi</h2>
+    </div>
+    <div class="services__grid">
+
+      <div class="service-card">
+        <div class="service-card__icon">✦</div>
+        <h3 class="service-card__title" data-i18n="svc1_title">Analiza sylwetki i kolorystyki</h3>
+        <p class="service-card__desc" data-i18n="svc1_desc">Odkryjemy Twój typ urody i sylwetki, by każda stylizacja była stworzona specjalnie dla Ciebie.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon">✦</div>
+        <h3 class="service-card__title" data-i18n="svc2_title">Shopping & Wardrobe edit</h3>
+        <p class="service-card__desc" data-i18n="svc2_desc">Razem zrobimy zakupy lub uporządkujemy Twoją garderobę — zostanie tylko to, co działa.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon">✦</div>
+        <h3 class="service-card__title" data-i18n="svc3_title">Stylizacja na wydarzenie</h3>
+        <p class="service-card__desc" data-i18n="svc3_desc">Wesele, sesja zdjęciowa, biznesowe spotkanie — przygotuję Cię od stóp do głów.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon">✦</div>
+        <h3 class="service-card__title" data-i18n="svc4_title">Konsultacja online</h3>
+        <p class="service-card__desc" data-i18n="svc4_desc">Zdalna analiza, porady i gotowe lookbooki — bez wychodzenia z domu.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CZAT - przycisk otwiera Instagram -->
+  <section class="chat-section" id="chat">
+    <div class="chat-section__inner">
+      <div class="chat-section__text">
+        <span class="section-eyebrow section-eyebrow--light" data-i18n="chat_eyebrow">Szybki kontakt</span>
+        <h2 class="section-title section-title--light" data-i18n="chat_title">Stylowy czat</h2>
+        <p class="chat-section__body" data-i18n="chat_body">
+          Masz pytanie dotyczące stylizacji? Napisz do mnie bezpośrednio — odpowiem w ciągu 24 h i pomogę wybrać kolejny krok na drodze do Twojego wymarzonego wizerunku.
+        </p>
+        <a href="https://www.instagram.com/_isaieva__/" target="_blank" rel="noopener" class="btn btn--primary" data-i18n="chat_btn">Napisz na Instagram</a>
+      </div>
+      <div class="chat-section__deco" aria-hidden="true">
+        <div class="deco-quote">&ldquo;</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPINIE - karuzela, 4 karty, autoscroll 6s -->
+  <section class="reviews" id="reviews">
+    <div class="section-header">
+      <span class="section-eyebrow" data-i18n="reviews_eyebrow">Co mówią klientki</span>
+      <h2 class="section-title" data-i18n="reviews_title">Opinie</h2>
+    </div>
+
+    <div class="carousel" role="region" aria-label="Opinie klientek">
+      <div class="carousel__track" id="carousel-track">
+
+        <div class="review-card" role="listitem">
+          <div class="review-card__quote">&ldquo;</div>
+          <p class="review-card__text" data-i18n="rev1_text">Polina całkowicie odmieniła mój sposób ubierania się. Po jednej sesji czuję się jak nowa osoba. Jej oko do detali jest absolutnie niesamowite!</p>
+          <div class="review-card__author">
+            <span class="review-card__name" data-i18n="rev1_name">— Marta K.</span>
+            <span class="review-card__stars">★★★★★</span>
+          </div>
+        </div>
+
+        <div class="review-card" role="listitem">
+          <div class="review-card__quote">&ldquo;</div>
+          <p class="review-card__text" data-i18n="rev2_text">Nareszcie wiem, co zakładać na ważne spotkania. Wardrobe edit to był najlepszy prezent, jaki zrobiłam sobie w tym roku.</p>
+          <div class="review-card__author">
+            <span class="review-card__name" data-i18n="rev2_name">— Joanna W.</span>
+            <span class="review-card__stars">★★★★★</span>
+          </div>
+        </div>
+
+        <div class="review-card" role="listitem">
+          <div class="review-card__quote">&ldquo;</div>
+          <p class="review-card__text" data-i18n="rev3_text">Shopping z Poliną? Absolutna magia! Znalazłyśmy rzeczy, których sama nigdy bym nie wzięła — a teraz to moje ulubione ubrania.</p>
+          <div class="review-card__author">
+            <span class="review-card__name" data-i18n="rev3_name">— Agnieszka T.</span>
+            <span class="review-card__stars">★★★★★</span>
+          </div>
+        </div>
+
+        <div class="review-card" role="listitem">
+          <div class="review-card__quote">&ldquo;</div>
+          <p class="review-card__text" data-i18n="rev4_text">Konsultacja online przekroczyła moje oczekiwania. Szczegółowy lookbook, konkretne wskazówki i niesamowite wyczucie stylu.</p>
+          <div class="review-card__author">
+            <span class="review-card__name" data-i18n="rev4_name">— Katarzyna M.</span>
+            <span class="review-card__stars">★★★★★</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="carousel__controls">
+        <button class="carousel__btn" id="prev-btn" aria-label="Poprzednia opinia" onclick="carousel(-1)">&#8592;</button>
+        <div class="carousel__dots" id="carousel-dots" aria-hidden="true"></div>
+        <button class="carousel__btn" id="next-btn" aria-label="Następna opinia" onclick="carousel(1)">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WSPÓŁPRACA -->
+  <section class="collab" id="collab">
+    <div class="section-header">
+      <span class="section-eyebrow" data-i18n="collab_eyebrow">Razem możemy więcej</span>
+      <h2 class="section-title" data-i18n="collab_title">Współpraca</h2>
+    </div>
+    <div class="collab__grid">
+      <div class="collab-card">
+        <span class="collab-card__icon">🤝</span>
+        <h3 data-i18n="col1_title">Marki i sklepy</h3>
+        <p data-i18n="col1_desc">Chętnie współpracuję z markami modowymi przy kampaniach, lookbookach i eventach.</p>
+      </div>
+      <div class="collab-card">
+        <span class="collab-card__icon">📸</span>
+        <h3 data-i18n="col2_title">Fotografie i media</h3>
+        <p data-i18n="col2_desc">Stylizacja do sesji zdjęciowych, filmów i projektów wydawniczych.</p>
+      </div>
+      <div class="collab-card">
+        <span class="collab-card__icon">🎤</span>
+        <h3 data-i18n="col3_title">Warsztaty i szkolenia</h3>
+        <p data-i18n="col3_desc">Prowadzę grupowe warsztaty stylizacji i wykłady o modzie dla firm i uczelni.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARZ - walidacja po stronie klienta, brak backendu -->
+  <section class="booking" id="booking">
+    <div class="section-header">
+      <span class="section-eyebrow" data-i18n="book_eyebrow">Pierwszy krok</span>
+      <h2 class="section-title" data-i18n="book_title">Zapisz się</h2>
+    </div>
+
+    <form class="booking-form" id="booking-form" novalidate onsubmit="submitForm(event)">
+
+      <div class="form-field">
+        <input type="text" id="f-name" name="name" class="form-input" placeholder=" " required autocomplete="name" />
+        <label for="f-name" class="form-label" data-i18n="form_name">Imię i nazwisko</label>
+        <span class="form-error" data-i18n="form_err_name">Podaj swoje imię</span>
+      </div>
+
+      <div class="form-field">
+        <input type="email" id="f-email" name="email" class="form-input" placeholder=" " required autocomplete="email" />
+        <label for="f-email" class="form-label" data-i18n="form_email">Adres e-mail</label>
+        <span class="form-error" data-i18n="form_err_email">Podaj poprawny e-mail</span>
+      </div>
+
+      <div class="form-field">
+        <input type="text" id="f-instagram" name="instagram" class="form-input" placeholder=" " autocomplete="username" />
+        <label for="f-instagram" class="form-label" data-i18n="form_ig">Instagram (opcjonalnie)</label>
+      </div>
+
+      <div class="form-field">
+        <select id="f-service" name="service" class="form-input form-select" required>
+          <option value="" disabled selected></option>
+          <option value="analiza" data-i18n-opt="opt1">Analiza sylwetki i kolorystyki</option>
+          <option value="shopping" data-i18n-opt="opt2">Shopping & Wardrobe edit</option>
+          <option value="event" data-i18n-opt="opt3">Stylizacja na wydarzenie</option>
+          <option value="online" data-i18n-opt="opt4">Konsultacja online</option>
+          <option value="wspolpraca" data-i18n-opt="opt5">Współpraca</option>
+        </select>
+        <label for="f-service" class="form-label form-label--select" data-i18n="form_service">Wybór usługi</label>
+        <span class="form-error" data-i18n="form_err_service">Wybierz usługę</span>
+      </div>
+
+      <button type="submit" class="btn btn--primary btn--wide" id="form-submit-btn" data-i18n="form_submit">Wyślij zgłoszenie</button>
+
+      <div class="form-success" id="form-success" aria-live="polite" data-i18n="form_success">
+        ✦ Dziękuję! Odezwę się wkrótce.
+      </div>
+
+    </form>
+  </section>
+
+  <!-- STOPKA -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="footer__logo">Polina</span>
+        <p class="footer__tagline" data-i18n="footer_tagline">Personal Stylist · PL &amp; UA</p>
+      </div>
+      <nav class="footer__nav" aria-label="Stopka nawigacja">
+        <a href="#services" data-i18n="nav_services">Usługi</a>
+        <a href="#reviews" data-i18n="nav_reviews">Opinie</a>
+        <a href="#booking" data-i18n="nav_book">Zapisz się</a>
+      </nav>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/_isaieva__/" target="_blank" rel="noopener" aria-label="Instagram @_isaieva__" class="social-link">Instagram</a>
+      </div>
+    </div>
+    <p class="footer__copy" data-i18n="footer_copy">&copy; 2026 Polina. All rights reserved.</p>
+  </footer>
+
+  <!-- EmailJS SDK - wysyłanie maili bez backendu -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- config.js jest w .gitignore - zawiera klucze API -->
+  <script src="config.js"></script>
+  <script src="translations.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
